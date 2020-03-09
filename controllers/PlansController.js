@@ -11,6 +11,11 @@ class PlansController{
     res.render('plans/create', {title_msg: req.flash('title_msg'), list_msg: req.flash('list_msg')});
   }
 
+  async edit(req, res){
+    var plan = await PlansService.getById(req.params.id);
+    res.render('plans/edit', {plan, title_msg: req.flash('title_msg'), list_msg: req.flash('list_msg')});
+  }
+
   async store(req, res){
     var { title, list, client, value, imports } = req.body;
 

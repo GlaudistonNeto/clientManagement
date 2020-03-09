@@ -2,30 +2,35 @@
 <%- include ("../partials/homenavbar.ejs") %>
 <body>
     <div class="container">
-        <h2 class="mt-5">Creating a new plan</h2>
+        <h2 class="mt-5">Editing a plan</h2>
         <hr>
         <form action="/plans/store" method="POST">
             <div class="card">
 
                 <div class="card-header">
-                    <h4>New plan</h4>
+                    <h4>Edit plan</h4>
                 </div>
 
                 <div class="card-body">
-                    <input type="text" name="title" id="title" class="form-control" placeholder="Plan Title"><br>
+                    <input type="text" name="title" id="title" class="form-control" placeholder="Plan title" value="<%= plan.title %>"><br>
                     <% if(title_msg.length > 0) { %>
                         <div class="alert alert-danger"><%= title_msg %></div>
                         <br>
                     <% } %>
-                    <input type="number" name="list" id="list" placeholder="Num of lists" class="form-control"><br>
+                    <input type="number" name="list" id="list" placeholder="Num. of lists" class="form-control" value="<%= plan.list %>"><br>
                     <% if(list_msg.length > 0) { %>
                         <div class="alert alert-danger"><%= list_msg %></div>
                         <br>
                     <% } %>
-                    <input type="number" name="client" id="client" placeholder="Num of clients" class="form-control"><br>
-                    <input type="number" name="value" id="value" placeholder="Value" class="form-control"><br>
+                    <input type="number" name="client" id="client" placeholder="Num. of clients" class="form-control" value="<%= plan.client %>"><br>
+                    <input type="number" name="value" id="value" placeholder="Value" class="form-control" value="<%= plan.value %>"><br>
                     <hr>
-                    Allows list import: <input type="checkbox" name="imports" id="imports">
+                    Allows list import: 
+                        <% if(plan.import) { %>
+                            <input type="checkbox" name="imports" id="imports" checked>
+                        <% } else { %>
+                            <input type="checkbox" name="imports" id="imports">
+                        <% } %>
                 </div>
 
                 <div class="card-footer">

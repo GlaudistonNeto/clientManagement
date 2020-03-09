@@ -11,6 +11,13 @@ class PlansService{
       return undefined;
     }
   }
+  async getById(id){
+    try{
+      return await this.Plan.findByPk(id);
+    }catch{
+      return undefined;
+    }
+  }
   async store(plans){
     var errors = {};
 
