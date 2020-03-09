@@ -8,6 +8,8 @@ router.get('/admin/plans/create', PlansController.create);
 
 router.get('/admin/plans/edit/:id', PlansController.edit);
 
+router.post('/plans/update', PlansController.update);
+
 router.post('/plans/store', PlansController.store);
 
 module.exports = router;

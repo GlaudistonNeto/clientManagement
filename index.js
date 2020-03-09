@@ -35,5 +35,5 @@ app.use(bodyParser.json());
 
 // End Router
 app.listen(3000, () => {
-    console.log("O servidor está rodando!")
+    console.log("Server's running!")
 })

@@ -4,7 +4,7 @@
     <div class="container">
         <h2 class="mt-5">Editing a plan</h2>
         <hr>
-        <form action="/plans/store" method="POST">
+        <form action="/plans/update" method="POST">
             <div class="card">
 
                 <div class="card-header">
@@ -12,6 +12,7 @@
                 </div>
 
                 <div class="card-body">
+                    <input type="hidden" name="id" value="<%= plan.id %>">
                     <input type="text" name="title" id="title" class="form-control" placeholder="Plan title" value="<%= plan.title %>"><br>
                     <% if(title_msg.length > 0) { %>
                         <div class="alert alert-danger"><%= title_msg %></div>
@@ -34,7 +35,7 @@
                 </div>
 
                 <div class="card-footer">
-                    <button class="btn btn-success btn-block">Register</button>
+                    <button class="btn btn-success btn-block">Edit</button>
                 </div>
             </div>
         </form>

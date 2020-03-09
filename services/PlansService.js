@@ -4,6 +4,7 @@ class PlansService{
   constructor(){
     this.Plan = Database["Plan"];
   }
+
   async getAll(){
     try{
       return await this.Plan.findAll();
@@ -11,6 +12,7 @@ class PlansService{
       return undefined;
     }
   }
+
   async getById(id){
     try{
       return await this.Plan.findByPk(id);
@@ -18,6 +20,31 @@ class PlansService{
       return undefined;
     }
   }
+
+  async update(id,data){
+    var errors = {};
+
+    var isValid = this.validate(data, errors);
+
+    if(isValid){
+        try{
+            var plan = await this.getById(id);
+            plan.title = data.title;
+            plan.list = data.list;
+            plan.client = data.client;
+            plan.value = data.value;
+            await plan.save();
+            return true;
+        }catch(erro){
+            errors.system_msg = "Não foi possível editar o plano!";
+            return errors;
+        }
+
+    }else{
+        return errors;
+    }
+}
+
   async store(plans){
     var errors = {};
 
