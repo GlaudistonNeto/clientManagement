@@ -4,8 +4,7 @@ class PlansController{
 
   async index(req, res){
     var plans = await PlansService.getAll();
-    res.json(plans);
-    //res.render('plans');
+    res.render('plans/index', {plans});
   }
 
   create(req, res){

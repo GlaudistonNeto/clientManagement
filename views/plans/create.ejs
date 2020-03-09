@@ -2,13 +2,13 @@
 <%- include ("../partials/homenavbar.ejs") %>
 <body>
     <div class="container">
-        <h2 class="mt-5">Criação de um novo plano</h2>
+        <h2 class="mt-5">Creating a new plan</h2>
         <hr>
         <form action="/plans/store" method="POST">
             <div class="card">
 
                 <div class="card-header">
-                    <h4>Novo plano</h4>
+                    <h4>New plan</h4>
                 </div>
 
                 <div class="card-body">
@@ -25,7 +25,7 @@
                     <input type="number" name="client" id="client" placeholder="N* de clientes" class="form-control"><br>
                     <input type="number" name="value" id="value" placeholder="Custo" class="form-control"><br>
                     <hr>
-                    Permite importação de lista: <input type="checkbox" name="imports" id="imports">
+                    Allows list import: <input type="checkbox" name="imports" id="imports">
                 </div>
 
                 <div class="card-footer">
