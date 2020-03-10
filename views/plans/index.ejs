@@ -10,14 +10,18 @@
               <th>ID</th>
               <th>Name</th>
               <th>Price</th>
+              <th>Deactivate?</th>
+              <th>Action</th>
           </tr>
           </thead>
           <tbody>
             <% plans.forEach(plan => { %>
               <tr>
-                <td><%= plan.id%></td>
-                <td><%= plan.title%></td>
-                <td>$ <%= plan.value%></td>
+                <td><%= plan.id %></td>
+                <td><%= plan.title %></td>
+                <td>$ <%= plan.value %></td>
+                <td><%= plan.deactivated %></td>
+                <td><a href="/plans/deactivate/<%= plan.id %>">Deactivate</a></td>
               </tr>
             <% }); %>
           </tbody>

@@ -21,6 +21,17 @@ class PlansService{
     }
   }
 
+    async deactivate(id){
+      try{
+        var plan = await this.getById(id);
+        plan.deactivated = true;
+        await plan.save();
+        return true;
+      }catch(err){
+        return false;
+      }
+    }
+
   async update(id,data){
     var errors = {};
 

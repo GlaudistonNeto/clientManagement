@@ -52,12 +52,18 @@ class PlansController{
     var result = await PlansService.store(plan);
 
     if(result == true){
-
+      res.redirect("/admin/plans");
     }else{
       req.flash('title_msg', result.title_msg);
       req.flash('list_msg', result.list_msg);
       res.redirect('/admin/plans/create');
     }
+  }
+
+  async deactivate(req, res){
+    var id = req.params.id;
+    await PlansService.deactivate(id);
+    res.redirect("/admin/plans");
   }
 }
 
